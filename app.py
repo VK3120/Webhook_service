@@ -19,7 +19,7 @@ from flasgger import Swagger
 redis_client = redis.StrictRedis(host='redis', port=6379, db=0)
 
 # DB initiation & Migration
-app = Flask(_name_)
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://webhook_user:supersecret@db:5432/webhooks_db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -320,7 +320,7 @@ def delete_subscription(subscription_id):
 
 
 # Start the services
-if _name_ == "_main_":
+if __name__ == "_main_":
     scheduler.start()
     cleanup_expired_subscriptions(app)
     start_background_worker(app)
