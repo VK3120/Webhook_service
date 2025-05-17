@@ -320,7 +320,7 @@ def delete_subscription(subscription_id):
 
 
 # Start the services
-if __name__ == "_main_":
+if __name__ == "__main__":
     scheduler.start()
     cleanup_expired_subscriptions(app)
     start_background_worker(app)
